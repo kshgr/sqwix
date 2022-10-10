@@ -32,9 +32,26 @@ async def ping(ctx: lightbulb.Context):
     await ctx.respond(f"Pong! Latency: {bot.heartbeat_latency*1000:.2f}ms")
         
 
+# Bot makes a Dad Joke: Hi X, I am Sqwix.
+
 @bot.listen(hikari.MessageCreateEvent)
-async def log(event):
-    print(event.content)
+async def dadjoke(event):
+    if event.is_human:
+        name = event.content
+        if name.lower().startswith("i am"):
+            await event.message.respond(f"Hi {name[5:]}, I am Sqwix.")
+        elif name.lower().startswith("i m"):
+            await event.message.respond(f"Hi {name[4:]}, I am Sqwix.")
+        elif name.lower().startswith("i'm"):
+            await event.message.respond(f"Hi {name[4:]}, I am Sqwix.")
+        elif name.lower().startswith("im"):
+            await event.message.respond(f"Hi {name[3:]}, I am Sqwix.")
+        elif name.lower().startswith("am"):
+            await event.message.respond(f"Hi {name[3:]}, I am Sqwix.")
+        elif name.lower().startswith("m"):
+            await event.message.respond(f"Hi {name[2:]}, I am Sqwix.")
+        else:
+            pass
 
 
 #Running the bot.
