@@ -17,7 +17,7 @@ import lightbulb
 # Importing bot-token from an air-gapped file.
 from secret import TOKEN
 
-#Initialising the bot.
+# Initialising the bot.
 bot = lightbulb.BotApp( token=TOKEN,
                         intents=hikari.Intents.ALL_MESSAGES,
                         prefix="!",
@@ -54,5 +54,6 @@ async def dadjoke(event):
             pass
 
 
-#Running the bot.
+
+# Running the bot.
 bot.run()
