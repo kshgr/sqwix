@@ -10,9 +10,11 @@ Last Update: 10th October, 2022
 """
 
 
+# Importing required libraries
 
 import hikari
 import lightbulb
+# Importing bot-token from an air-gapped file.
 from secret import TOKEN
 
 bot = lightbulb.BotApp( token=TOKEN,
