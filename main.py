@@ -29,8 +29,8 @@ bot = lightbulb.BotApp( token=TOKEN,
 @lightbulb.command("ping", "Returns the Latency for our Bot.")
 @lightbulb.implements(lightbulb.PrefixCommand, lightbulb.SlashCommand)
 async def ping(ctx: lightbulb.Context):
-    # Send a message to the channel the command was used in
     await ctx.respond(f"Pong! Latency: {bot.heartbeat_latency*1000:.2f}ms")
+        
 
 @bot.listen(hikari.MessageCreateEvent)
 async def log(event):
