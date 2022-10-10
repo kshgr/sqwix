@@ -1,0 +1,2 @@
+# sqwix
+Discord Bot
