@@ -1,2 +1,5 @@
-# sqwix
-Discord Bot
+# Sqwix
+
+A Discord Bot.
+
+More coming soon
