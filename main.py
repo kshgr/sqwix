@@ -17,7 +17,7 @@ import lightbulb
 # Importing bot-token from an air-gapped file.
 from secret import TOKEN
 
-#Initialising the bot.
+# Initialising the bot.
 bot = lightbulb.BotApp( token=TOKEN,
                         intents=hikari.Intents.ALL_MESSAGES,
                         prefix="!",
@@ -53,6 +53,13 @@ async def dadjoke(event):
         else:
             pass
 
+@bot.command
+@lightbulb.command("ban", "Bans the determined user from the server.")
+@lightbulb.implements(lightbulb.PrefixCommand, lightbulb.SlashCommand)
+async def ban(ctx: lightbulb.Context):
+    print(ctx)
+    user = ""
+    await ctx.respond(f"{user} has been banned from the server.")
 
-#Running the bot.
+# Running the bot.
 bot.run()
