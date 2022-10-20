@@ -53,7 +53,13 @@ async def dadjoke(event):
         else:
             pass
 
-
+@bot.command
+@lightbulb.command("ban", "Bans the determined user from the server.")
+@lightbulb.implements(lightbulb.PrefixCommand, lightbulb.SlashCommand)
+async def ban(ctx: lightbulb.Context):
+    print(ctx)
+    user = ""
+    await ctx.respond(f"{user} has been banned from the server.")
 
 # Running the bot.
 bot.run()
