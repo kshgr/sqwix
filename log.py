@@ -1,5 +1,3 @@
-import datetime
-
 import hikari
 import lightbulb
 
@@ -12,10 +10,10 @@ bot = lightbulb.BotApp( token=TOKEN,
                         prefix="!",
                       )
 
-
 import sqlite3
+import datetime
 
-# Initialize
+# Initialize SQLite3
 
 try:
     sqliteConnection = sqlite3.connect('SQLite_Python.db')
@@ -62,14 +60,11 @@ finally:
 
 @bot.listen(hikari.MessageCreateEvent)   
 async def CreateLog(event):
-    print(event.content)
     GuildID = event.guild_id
     ChannelID = event.channel_id
     UserID = event.author_id
     Message = str(event.content)
-    
     Date = datetime.datetime.now()
-    print(Date)
 
     try:
         sqliteConnection = sqlite3.connect('SQLite_Python.db')
@@ -92,6 +87,7 @@ async def CreateLog(event):
 
     except sqlite3.Error as error:
         print("Failed to insert data into sqlite table", error)
+
     finally:
         if sqliteConnection:
             sqliteConnection.close()
